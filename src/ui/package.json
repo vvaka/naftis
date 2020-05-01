@@ -9,7 +9,9 @@
     "dev": "cross-env NODE_ENV=development PORT=5200 node build/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production node_modules/.bin/webpack --progress --config ./build/webpack.production.config.js",
     "postbuild": "mkdir ./dist/public && cp -R ./src/public/* ./dist/public",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "Naftis Authors",
   "license": "Apache License 2.0",
@@ -35,7 +37,8 @@
     "react-router-dom": "^4.3.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.3.0",
-    "sockette": "^2.0.0"
+    "sockette": "^2.0.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.6.5",
@@ -99,5 +102,6 @@
       "standard --fix",
       "git add"
     ]
-  }
+  },
+  "snyk": true
 }
